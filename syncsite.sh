@@ -1,12 +1,19 @@
 #!/bin/bash
-LOCAL_TO_REMOTE=localToRemote
-REMOTE_TO_LOCAL=remoteToLocal
+#this script will sync you site directory between local and remote
 
+#these 4 const you need to specify
+#your account name on remote computer
 USER_NAME='wentao_zhang'
+#host name or ip addr of remote compter
 HOST='wentao.me'
+#the site root directory on local
 LOCAL_ROOT='/home/wentao/test/www.wentao.com/'
+#the site root directory on remote 
 REMOTE_ROOT='/home/wentao_zhang/test/www.wentao.com/'
 
+
+LOCAL_TO_REMOTE=localToRemote
+REMOTE_TO_LOCAL=remoteToLocal
 param=''
 
 #file or folder will be sync
