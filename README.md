@@ -23,6 +23,7 @@ you have a file named 'siteconfig.conf',after you edit,you want sync it to remot
 
 	syncsite.sh siteconfig.conf
 contrary:
+
 	syncsite.sh siteconfig.conf remoteTolocal
 
 ##download
