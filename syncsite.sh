@@ -6,14 +6,19 @@
 USER_NAME='wentao_zhang'
 #host name or ip addr of remote compter
 HOST='wentao.me'
-#the site root directory on local
-LOCAL_ROOT='/home/wentao/test/www.wentao.com/'
-#the site root directory on remote 
+#the site root(absolute path) directory on local
+LOCAL_ROOT='/home/wentao/test/www.wentao.com'
+#the site root(absolute pat) directory on remote 
 REMOTE_ROOT='/home/wentao_zhang/test/www.wentao.com/'
 
+#delet last '/' charactor is has
+LOCAL_ROOT=${LOCAL_ROOT%\/}
+REMOTE_ROOT=${REMOTE_ROOT%\/}
 
+#dirction options const
 LOCAL_TO_REMOTE=localToRemote
 REMOTE_TO_LOCAL=remoteToLocal
+
 param=''
 
 #file or folder will be sync
@@ -38,7 +43,6 @@ fi
 itemRelativePath=${itemAbsolutePath#"$LOCAL_ROOT"}
 #item's remote absolute path 
 itemRemoteAbsolutePath=$REMOTE_ROOT$itemRelativePath
-
 echo syncing...
 echo LOCAL:$itemAbsolutePath
 echo REMOTE:$itemRemoteAbsolutePath
