@@ -1,4 +1,5 @@
 #syncsite
+sync files between local and remote of you site project.
 
 ##who use it
 if your work like this:you are building a site,all file of the site are within a directory(I call this ROOT),and you have two copies of it,one on your local computer,one on a remote test machine.you need to edit files on local,and need to test on the remote.
