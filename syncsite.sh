@@ -35,6 +35,13 @@ fi
 
 #item's local absolute path
 itemAbsolutePath=`readlink -f $itemForSync`
+
+#check the sync item is within the LOCAL_ROOT or not
+if [[ !($itemAbsolutePath =~ $LOCAL_ROOT) ]];then
+	echo "error:($itemAbsolutePath) is not in LOCAL_ROOT($LOCAL_ROOT)"
+	exit 2
+fi
+
 if [ -d $itemForSync ];then
 	param='-r'
 fi
