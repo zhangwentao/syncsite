@@ -55,7 +55,6 @@ if [ -d $itemForSync ];then
 	param='-r'
 	#if itemForSync is a directory
 	itemRemoteAbsolutePath=${itemRemoteAbsolutePath%\/*}
-	echo "itemRemoteAbsolutePath:($itemRemoteAbsolutePath)"
 fi
 
 if [[ $direction == $REMOTE_TO_LOCAL ]];then
