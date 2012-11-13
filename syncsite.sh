@@ -42,17 +42,22 @@ if [[ !($itemAbsolutePath =~ $LOCAL_ROOT) ]];then
 	exit 2
 fi
 
-if [ -d $itemForSync ];then
-	param='-r'
-fi
-
 #item's local relate path with LOCAL_ROOT
 itemRelativePath=${itemAbsolutePath#"$LOCAL_ROOT"}
 #item's remote absolute path 
 itemRemoteAbsolutePath=$REMOTE_ROOT$itemRelativePath
+
 echo syncing...
 echo LOCAL:$itemAbsolutePath
 echo REMOTE:$itemRemoteAbsolutePath
+
+if [ -d $itemForSync ];then
+	param='-r'
+	#if itemForSync is a directory
+	itemRemoteAbsolutePath=${itemRemoteAbsolutePath%\/*}
+	echo "itemRemoteAbsolutePath:($itemRemoteAbsolutePath)"
+fi
+
 if [[ $direction == $REMOTE_TO_LOCAL ]];then
 	echo direction:$REMOTE_TO_LOCAL
 	scp $param $USER_NAME@$HOST:$itemRemoteAbsolutePath $itemAbsolutePath
